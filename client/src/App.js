@@ -1,0 +1,23 @@
+// App.js
+import React from 'react';
+import Home from './pages/home/home';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navibar from './components/navbar/navibar.js';
+import './index.css';
+import Footer from './components/footer/footer.js';
+
+const App = () => {
+  return (
+    <div className="Background">
+      <Navibar />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </Router>
+      <Footer />
+    </div>
+  );
+};
+
+export default App;

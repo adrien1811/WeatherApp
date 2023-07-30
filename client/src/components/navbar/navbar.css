@@ -1,0 +1,58 @@
+.navbar {
+  width: 100%;
+  background-color: rgb(7, 2, 2);
+  height: 100px;
+  top: 0;
+  z-index: 3;
+}
+
+a{
+  position: absolute;
+  color: white;
+  top: 2%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 50px;
+  text-decoration: none;
+  background-color: black;
+}
+
+.searchbar{
+  position: absolute;
+  margin-right: 200px;
+  float: right;
+  margin-top: 20px;
+  border-radius: 11px;
+  background-color: black;
+}
+
+input{
+  position: absolute;
+  top: 15px;
+  left: 1130px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  height: 40px;
+  padding: 8px;
+}
+.SearchButton{
+  position: absolute;
+  top: 40px;
+  right: 150px;
+  box-sizing: border-box;
+  width: 70px;
+  height: 25px;
+  border-radius: 10px;
+  background-color: rgb(68, 89, 196);
+  bottom: 40px;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+.Time {
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  padding: 10px;
+  color: rgb(255, 255, 255);
+}

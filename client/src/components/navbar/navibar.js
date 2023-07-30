@@ -21,10 +21,6 @@ export default function Navibar() {
       <div className="navbar">
         <a href="#home">WeatherApp</a>
         <p className='Time'>Current Time: {currentTime.toLocaleTimeString()}</p>
-        <form className="searchbar">
-          <input type="text" placeholder="Search City.." name="search" />
-        </form>
-        <button className="SearchButton">Search</button>
       </div>
     </div>
   );

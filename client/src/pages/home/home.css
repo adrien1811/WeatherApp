@@ -1,0 +1,77 @@
+/* ./pages/home/home.css */
+
+.home {
+    height: 120vh; /* Set the height to 100% of the viewport height */
+    width: 100%; /* Set the width to 100% of the viewport width */
+    display: flex; /* To make sure content expands to fill the available space */
+    flex-direction: column; /* Align content vertically in a column */
+    background-color: rgb(255, 255, 255);
+    background-image: url('https://source.unsplash.com/1600x900/?sunny');
+  }
+.card{
+    background-color: rgb(33, 37, 41);
+    width: 450px;
+    height: 330px;
+    position: relative;
+    border-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial;
+    top: 120px;
+    left: 570px;
+    }
+.searchbar{
+    right: 10px;
+    bottom: 40px;
+    position: relative;
+    border-radius: 11px;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  input{
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 300px;
+    height: 40px;
+    padding: 8px;
+  }
+  .searchButton{
+    left: 165px;
+    bottom: 75px;
+    position: relative;
+    position: relative;
+    box-sizing: border-box;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    background-color: rgb(68, 89, 196);
+    box-sizing: border-box;
+    font-size: 13px;
+  }
+
+  .title{
+    right: 50px;
+    position: relative;
+    font-size: 25px;
+    bottom: 50px;
+    color: white;
+  }
+  .temperature{
+    right: 120px;
+    position: relative;
+    font-size: 30px;
+    bottom: 30px;
+    color: white;
+  }
+  .information{
+    position: relative;
+    font-size: 14px;
+    right: 85px;
+ 
+    color: white;
+  }
+  .information p {
+    margin: 5px 0; /* Add margin of 8px on the top and bottom, and 0 margin on the left and right */
+  }

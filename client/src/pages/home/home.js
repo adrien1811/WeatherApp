@@ -31,7 +31,7 @@ const Home = () => {
     <div className="information">
   <p>Sunny</p>
   <p>Humidity: 60%</p>
-  <p>Wind speed: 6.5 km/h</p>
+  <p>Wind speed: 6.4 km/h</p>
     </div>
   </div>
   </div>

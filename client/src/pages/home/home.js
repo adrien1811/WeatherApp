@@ -1,9 +1,25 @@
 import React from 'react';
 import './home.css';
-
+import { Helmet } from 'react-helmet';
 const Home = () => {
   // Your Home component implementation
   return <div>
+   <Helmet>
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+          crossorigin
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
   <div className="home">
     <div className="card">
     <form className="searchbar">
@@ -12,7 +28,7 @@ const Home = () => {
 <button className="searchButton">
   <svg
     stroke="currentColor"
-    fill="currentColor"
+    fill="white"
     strokeWidth="0"
     viewBox="0 0 24 24"
     height="1em"

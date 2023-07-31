@@ -10,6 +10,7 @@
   "dependencies": {
     "if-env": "^1.0.4",
     "mdb-react-ui-kit": "^6.1.0",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^6.14.2"
   }
 }

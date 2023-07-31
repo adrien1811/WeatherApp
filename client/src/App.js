@@ -1,5 +1,5 @@
-// App.js
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Home from './pages/home/home';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navibar from './components/navbar/navibar.js';
@@ -19,5 +19,8 @@ const App = () => {
     </div>
   );
 };
+
+// Add the ReactDOM.render here
+ReactDOM.render(<App />, document.getElementById('root'));
 
 export default App;

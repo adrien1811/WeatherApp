@@ -65,6 +65,12 @@ const Home = (props) => {
   useEffect(() => {
     fetchWeatherData();
   }, []);
+  function getForecastTime(timestamp) {
+    const date = new Date(timestamp * 1000);
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    return `${hours}:${minutes}`;
+  }
   const getWeatherIcon = (weatherCode) => {
     switch (weatherCode) {
       case '01d':
@@ -152,82 +158,6 @@ const Home = (props) => {
           return (
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><g><path fill="none" d="M0 0h24v24H0z"></path><path d="M17 18v-2h.5a3.5 3.5 0 1 0-2.5-5.95V10a6 6 0 1 0-8 5.659v2.089a8 8 0 1 1 9.458-10.65A5.5 5.5 0 1 1 17.5 18l-.5.001zm-4-1.995h3l-5 6.5v-4.5H8l5-6.505v4.505z"></path></g></svg>
           );
-        case '13d':
-          return (
-          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><g><path fill="none" d="M0 0h24v24H0z"></path><path d="M17 18v-2h.5a3.5 3.5 0 1 0-2.5-5.95V10a6 6 0 1 0-8 5.659v2.089a8 8 0 1 1 9.458-10.65A5.5 5.5 0 1 1 17.5 18l-.5.001zm-4-1.995h3l-5 6.5v-4.5H8l5-6.505v4.505z"></path></g></svg>
-            );
-       case '13n':
-            return (
-          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><g><path fill="none" d="M0 0h24v24H0z"></path><path d="M17 18v-2h.5a3.5 3.5 0 1 0-2.5-5.95V10a6 6 0 1 0-8 5.659v2.089a8 8 0 1 1 9.458-10.65A5.5 5.5 0 1 1 17.5 18l-.5.001zm-4-1.995h3l-5 6.5v-4.5H8l5-6.505v4.505z"></path></g></svg>
-              );
-        case '14d':
-          return (
-            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><path d="M8 13H10V17H8zM8 18H10V20H8zM11 15H13V19H11zM11 20H13V22H11zM14 13H16V17H14zM14 18H16V20H14z"></path><path d="M18.944,10.112C18.507,6.67,15.56,4,12,4C9.244,4,6.85,5.611,5.757,8.15C3.609,8.792,2,10.819,2,13c0,2.757,2.243,5,5,5v-2 c-1.654,0-3-1.346-3-3c0-1.403,1.199-2.756,2.673-3.015l0.581-0.103l0.192-0.559C8.149,7.273,9.895,6,12,6c2.757,0,5,2.243,5,5v1h1 c1.103,0,2,0.897,2,2s-0.897,2-2,2h-1v2h1c2.206,0,4-1.794,4-4C22,12.119,20.695,10.538,18.944,10.112z"></path></svg>
-            );
-       case '14n':
-            return (
-              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><path d="M8 13H10V17H8zM8 18H10V20H8zM11 15H13V19H11zM11 20H13V22H11zM14 13H16V17H14zM14 18H16V20H14z"></path><path d="M18.944,10.112C18.507,6.67,15.56,4,12,4C9.244,4,6.85,5.611,5.757,8.15C3.609,8.792,2,10.819,2,13c0,2.757,2.243,5,5,5v-2 c-1.654,0-3-1.346-3-3c0-1.403,1.199-2.756,2.673-3.015l0.581-0.103l0.192-0.559C8.149,7.273,9.895,6,12,6c2.757,0,5,2.243,5,5v1h1 c1.103,0,2,0.897,2,2s-0.897,2-2,2h-1v2h1c2.206,0,4-1.794,4-4C22,12.119,20.695,10.538,18.944,10.112z"></path></svg>
-              );
-       case '15d':
-                return (
-                  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><path d="M8 13H10V17H8zM8 18H10V20H8zM11 15H13V19H11zM11 20H13V22H11zM14 13H16V17H14zM14 18H16V20H14z"></path><path d="M18.944,10.112C18.507,6.67,15.56,4,12,4C9.244,4,6.85,5.611,5.757,8.15C3.609,8.792,2,10.819,2,13c0,2.757,2.243,5,5,5v-2 c-1.654,0-3-1.346-3-3c0-1.403,1.199-2.756,2.673-3.015l0.581-0.103l0.192-0.559C8.149,7.273,9.895,6,12,6c2.757,0,5,2.243,5,5v1h1 c1.103,0,2,0.897,2,2s-0.897,2-2,2h-1v2h1c2.206,0,4-1.794,4-4C22,12.119,20.695,10.538,18.944,10.112z"></path></svg>
-                  );
-       case '15n':
-                  return (
-                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><path d="M8 13H10V17H8zM8 18H10V20H8zM11 15H13V19H11zM11 20H13V22H11zM14 13H16V17H14zM14 18H16V20H14z"></path><path d="M18.944,10.112C18.507,6.67,15.56,4,12,4C9.244,4,6.85,5.611,5.757,8.15C3.609,8.792,2,10.819,2,13c0,2.757,2.243,5,5,5v-2 c-1.654,0-3-1.346-3-3c0-1.403,1.199-2.756,2.673-3.015l0.581-0.103l0.192-0.559C8.149,7.273,9.895,6,12,6c2.757,0,5,2.243,5,5v1h1 c1.103,0,2,0.897,2,2s-0.897,2-2,2h-1v2h1c2.206,0,4-1.794,4-4C22,12.119,20.695,10.538,18.944,10.112z"></path></svg>
-                    );
-       case '16d':
-                  return (
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><path d="M8 13H10V17H8zM8 18H10V20H8zM11 15H13V19H11zM11 20H13V22H11zM14 13H16V17H14zM14 18H16V20H14z"></path><path d="M18.944,10.112C18.507,6.67,15.56,4,12,4C9.244,4,6.85,5.611,5.757,8.15C3.609,8.792,2,10.819,2,13c0,2.757,2.243,5,5,5v-2 c-1.654,0-3-1.346-3-3c0-1.403,1.199-2.756,2.673-3.015l0.581-0.103l0.192-0.559C8.149,7.273,9.895,6,12,6c2.757,0,5,2.243,5,5v1h1 c1.103,0,2,0.897,2,2s-0.897,2-2,2h-1v2h1c2.206,0,4-1.794,4-4C22,12.119,20.695,10.538,18.944,10.112z"></path></svg>
-                        );
-       case '16n':
-                  return (
-                          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><path d="M8 13H10V17H8zM8 18H10V20H8zM11 15H13V19H11zM11 20H13V22H11zM14 13H16V17H14zM14 18H16V20H14z"></path><path d="M18.944,10.112C18.507,6.67,15.56,4,12,4C9.244,4,6.85,5.611,5.757,8.15C3.609,8.792,2,10.819,2,13c0,2.757,2.243,5,5,5v-2 c-1.654,0-3-1.346-3-3c0-1.403,1.199-2.756,2.673-3.015l0.581-0.103l0.192-0.559C8.149,7.273,9.895,6,12,6c2.757,0,5,2.243,5,5v1h1 c1.103,0,2,0.897,2,2s-0.897,2-2,2h-1v2h1c2.206,0,4-1.794,4-4C22,12.119,20.695,10.538,18.944,10.112z"></path></svg>
-                          );
-       case '17d':
-                  return (
-                              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><path d="M8 13H10V17H8zM8 18H10V20H8zM11 15H13V19H11zM11 20H13V22H11zM14 13H16V17H14zM14 18H16V20H14z"></path><path d="M18.944,10.112C18.507,6.67,15.56,4,12,4C9.244,4,6.85,5.611,5.757,8.15C3.609,8.792,2,10.819,2,13c0,2.757,2.243,5,5,5v-2 c-1.654,0-3-1.346-3-3c0-1.403,1.199-2.756,2.673-3.015l0.581-0.103l0.192-0.559C8.149,7.273,9.895,6,12,6c2.757,0,5,2.243,5,5v1h1 c1.103,0,2,0.897,2,2s-0.897,2-2,2h-1v2h1c2.206,0,4-1.794,4-4C22,12.119,20.695,10.538,18.944,10.112z"></path></svg>
-                          );
-       case '17n':
-                  return (
-                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><path d="M8 13H10V17H8zM8 18H10V20H8zM11 15H13V19H11zM11 20H13V22H11zM14 13H16V17H14zM14 18H16V20H14z"></path><path d="M18.944,10.112C18.507,6.67,15.56,4,12,4C9.244,4,6.85,5.611,5.757,8.15C3.609,8.792,2,10.819,2,13c0,2.757,2.243,5,5,5v-2 c-1.654,0-3-1.346-3-3c0-1.403,1.199-2.756,2.673-3.015l0.581-0.103l0.192-0.559C8.149,7.273,9.895,6,12,6c2.757,0,5,2.243,5,5v1h1 c1.103,0,2,0.897,2,2s-0.897,2-2,2h-1v2h1c2.206,0,4-1.794,4-4C22,12.119,20.695,10.538,18.944,10.112z"></path></svg>
-                        );
-       case '18d':
-                  return (
-                          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><path d="M18.944,10.112C18.507,6.67,15.56,4,12,4C9.244,4,6.85,5.611,5.757,8.15C3.609,8.792,2,10.819,2,13c0,2.757,2.243,5,5,5v-2 c-1.654,0-3-1.346-3-3c0-1.403,1.199-2.756,2.673-3.015l0.581-0.103l0.192-0.559C8.149,7.273,9.895,6,12,6c2.757,0,5,2.243,5,5v1h1 c1.103,0,2,0.897,2,2s-0.897,2-2,2h-1v2h1c2.206,0,4-1.794,4-4C22,12.119,20.695,10.538,18.944,10.112z"></path><circle cx="15" cy="16" r="1"></circle><circle cx="15" cy="19" r="1"></circle><circle cx="12" cy="18" r="1"></circle><circle cx="12" cy="21" r="1"></circle><circle cx="9" cy="19" r="1"></circle><circle cx="9" cy="16" r="1"></circle></svg>
-                          );
-       case '18n':
-                  return (
-                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><path d="M18.944,10.112C18.507,6.67,15.56,4,12,4C9.244,4,6.85,5.611,5.757,8.15C3.609,8.792,2,10.819,2,13c0,2.757,2.243,5,5,5v-2 c-1.654,0-3-1.346-3-3c0-1.403,1.199-2.756,2.673-3.015l0.581-0.103l0.192-0.559C8.149,7.273,9.895,6,12,6c2.757,0,5,2.243,5,5v1h1 c1.103,0,2,0.897,2,2s-0.897,2-2,2h-1v2h1c2.206,0,4-1.794,4-4C22,12.119,20.695,10.538,18.944,10.112z"></path><circle cx="15" cy="16" r="1"></circle><circle cx="15" cy="19" r="1"></circle><circle cx="12" cy="18" r="1"></circle><circle cx="12" cy="21" r="1"></circle><circle cx="9" cy="19" r="1"></circle><circle cx="9" cy="16" r="1"></circle></svg>
-                        );
-       case '19d':
-                  return (
-                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><path d="M18.944,10.112C18.507,6.67,15.56,4,12,4C9.244,4,6.85,5.611,5.757,8.15C3.609,8.792,2,10.819,2,13c0,2.757,2.243,5,5,5v-2 c-1.654,0-3-1.346-3-3c0-1.403,1.199-2.756,2.673-3.015l0.581-0.103l0.192-0.559C8.149,7.273,9.895,6,12,6c2.757,0,5,2.243,5,5v1h1 c1.103,0,2,0.897,2,2s-0.897,2-2,2h-1v2h1c2.206,0,4-1.794,4-4C22,12.119,20.695,10.538,18.944,10.112z"></path><circle cx="15" cy="16" r="1"></circle><circle cx="15" cy="19" r="1"></circle><circle cx="12" cy="18" r="1"></circle><circle cx="12" cy="21" r="1"></circle><circle cx="9" cy="19" r="1"></circle><circle cx="9" cy="16" r="1"></circle></svg>
-                                  );
-       case '19n':
-                  return (
-                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><path d="M18.944,10.112C18.507,6.67,15.56,4,12,4C9.244,4,6.85,5.611,5.757,8.15C3.609,8.792,2,10.819,2,13c0,2.757,2.243,5,5,5v-2 c-1.654,0-3-1.346-3-3c0-1.403,1.199-2.756,2.673-3.015l0.581-0.103l0.192-0.559C8.149,7.273,9.895,6,12,6c2.757,0,5,2.243,5,5v1h1 c1.103,0,2,0.897,2,2s-0.897,2-2,2h-1v2h1c2.206,0,4-1.794,4-4C22,12.119,20.695,10.538,18.944,10.112z"></path><circle cx="15" cy="16" r="1"></circle><circle cx="15" cy="19" r="1"></circle><circle cx="12" cy="18" r="1"></circle><circle cx="12" cy="21" r="1"></circle><circle cx="9" cy="19" r="1"></circle><circle cx="9" cy="16" r="1"></circle></svg>
-                                );
-       case '20d':
-                    return (
-                      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><path d="M18.944,10.112C18.507,6.67,15.56,4,12,4C9.244,4,6.85,5.611,5.757,8.15C3.609,8.792,2,10.819,2,13c0,2.757,2.243,5,5,5v-2 c-1.654,0-3-1.346-3-3c0-1.403,1.199-2.756,2.673-3.015l0.581-0.103l0.192-0.559C8.149,7.273,9.895,6,12,6c2.757,0,5,2.243,5,5v1h1 c1.103,0,2,0.897,2,2s-0.897,2-2,2h-1v2h1c2.206,0,4-1.794,4-4C22,12.119,20.695,10.538,18.944,10.112z"></path><circle cx="15" cy="16" r="1"></circle><circle cx="15" cy="19" r="1"></circle><circle cx="12" cy="18" r="1"></circle><circle cx="12" cy="21" r="1"></circle><circle cx="9" cy="19" r="1"></circle><circle cx="9" cy="16" r="1"></circle></svg>
-                                );
-       case '20n':
-                    return (
-                      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><path d="M18.944,10.112C18.507,6.67,15.56,4,12,4C9.244,4,6.85,5.611,5.757,8.15C3.609,8.792,2,10.819,2,13c0,2.757,2.243,5,5,5v-2 c-1.654,0-3-1.346-3-3c0-1.403,1.199-2.756,2.673-3.015l0.581-0.103l0.192-0.559C8.149,7.273,9.895,6,12,6c2.757,0,5,2.243,5,5v1h1 c1.103,0,2,0.897,2,2s-0.897,2-2,2h-1v2h1c2.206,0,4-1.794,4-4C22,12.119,20.695,10.538,18.944,10.112z"></path><circle cx="15" cy="16" r="1"></circle><circle cx="15" cy="19" r="1"></circle><circle cx="12" cy="18" r="1"></circle><circle cx="12" cy="21" r="1"></circle><circle cx="9" cy="19" r="1"></circle><circle cx="9" cy="16" r="1"></circle></svg>
-                                );
-        case '21d':
-                    return (
-                      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><path d="M18.944,10.112C18.507,6.67,15.56,4,12,4C9.244,4,6.85,5.611,5.757,8.15C3.609,8.792,2,10.819,2,13c0,2.757,2.243,5,5,5v-2 c-1.654,0-3-1.346-3-3c0-1.403,1.199-2.756,2.673-3.015l0.581-0.103l0.192-0.559C8.149,7.273,9.895,6,12,6c2.757,0,5,2.243,5,5v1h1 c1.103,0,2,0.897,2,2s-0.897,2-2,2h-1v2h1c2.206,0,4-1.794,4-4C22,12.119,20.695,10.538,18.944,10.112z"></path><circle cx="15" cy="16" r="1"></circle><circle cx="15" cy="19" r="1"></circle><circle cx="12" cy="18" r="1"></circle><circle cx="12" cy="21" r="1"></circle><circle cx="9" cy="19" r="1"></circle><circle cx="9" cy="16" r="1"></circle></svg>
-                              );
-        case '21n':
-                    return (
-                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><path d="M18.944,10.112C18.507,6.67,15.56,4,12,4C9.244,4,6.85,5.611,5.757,8.15C3.609,8.792,2,10.819,2,13c0,2.757,2.243,5,5,5v-2 c-1.654,0-3-1.346-3-3c0-1.403,1.199-2.756,2.673-3.015l0.581-0.103l0.192-0.559C8.149,7.273,9.895,6,12,6c2.757,0,5,2.243,5,5v1h1 c1.103,0,2,0.897,2,2s-0.897,2-2,2h-1v2h1c2.206,0,4-1.794,4-4C22,12.119,20.695,10.538,18.944,10.112z"></path><circle cx="15" cy="16" r="1"></circle><circle cx="15" cy="19" r="1"></circle><circle cx="12" cy="18" r="1"></circle><circle cx="12" cy="21" r="1"></circle><circle cx="9" cy="19" r="1"></circle><circle cx="9" cy="16" r="1"></circle></svg>
-                              );                     
-      case '50d':
-        return (
-          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><path d="M811.4 418.7C765.6 297.9 648.9 212 512.2 212S258.8 297.8 213 418.6C127.3 441.1 64 519.1 64 612c0 110.5 89.5 200 199.9 200h496.2C870.5 812 960 722.5 960 612c0-92.7-63.1-170.7-148.6-193.3z"></path></svg>
-        );
         case '50n':
           return (
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M811.4 418.7C765.6 297.9 648.9 212 512.2 212S258.8 297.8 213 418.6C127.3 441.1 64 519.1 64 612c0 110.5 89.5 200 199.9 200h496.2C870.5 812 960 722.5 960 612c0-92.7-63.1-170.7-148.6-193.3z"></path></svg>
@@ -315,13 +245,13 @@ const Home = (props) => {
         </div>
         <div className="card2">
         {forecastData ? (
-        forecastData.slice(0, 5).map((forecastItem, index) => (
-         <div key={index} className="item">
-        <p>{`Day ${index + 1}`}</p>
+          forecastData.slice(0, 5).map((forecastItem, index) => (
+        <div key={index} className="item">
+        <p className="hour">{getForecastTime(forecastItem.dt)}</p>
         <span className="icon-card2">
           {getWeatherIcon(forecastItem.weather[0].icon)}
         </span>
-        <p>{`${forecastItem.main.temp}°C`}</p>
+        <p classname="temperature-hourly">{`${forecastItem.main.temp}°C`}</p>
       </div>
     ))
   ) : (

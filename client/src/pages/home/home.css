@@ -26,7 +26,7 @@
   
 .searchbar{
   right: 10px;
-  bottom: 25px;
+  bottom: 20px;
   position: relative;
 }
 
@@ -116,7 +116,7 @@ input{
   align-items: center;
   justify-content: center;
   font-family: Arial;
-  top: 200px;
+  top: 230px;
   left: 300px;
   }
   .item {
@@ -141,10 +141,15 @@ input{
   }
   .card2 p{
     font-size: 20px;
+    width: 30px;
   }
+
   .icon-card2{
-    right: 50px;
+    position: relative;
+    right: 10px;
   }
-  
-  
+  .temperature-hourly{
+    position: relative;
+    right: 15px;
+  }
   

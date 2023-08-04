@@ -146,10 +146,14 @@ input{
 
   .icon-card2{
     position: relative;
-    right: 10px;
+    right: 12px;
   }
+  .icon-card2 img{
+    height: 5em;
+    width: 5em;
+  } 
   .temperature-hourly{
     position: relative;
-    right: 15px;
+    right: 4px;
   }
   

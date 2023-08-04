@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: center;
   font-family: Arial;
-  top: 200px;
+  top: 150px;
   left: 300px;
   }
   
@@ -99,9 +99,52 @@ input{
 }
 .map {
   position: absolute;
-  top: 200px;
+  top: 150px;
   left: 800px;
   height: 34%;
   width: 30%;
   border-radius: 2em;
 }
+.card2{
+  background-color: rgba(33, 37, 41, 0.7);
+  width: 970px;
+  height: 250px;
+  position: relative;
+  border-radius: 2em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial;
+  top: 200px;
+  left: 300px;
+  }
+  .item {
+    padding: 10px;
+    color: white;
+    position: relative;
+    margin: 40px;
+  }
+  
+  .item::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 100%;
+    background-color: white;
+  }
+  .item:last-child::after {
+    display: none;
+  }
+  .card2 p{
+    font-size: 20px;
+  }
+  .icon-card2{
+    right: 50px;
+  }
+  
+  
+  

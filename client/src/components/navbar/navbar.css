@@ -20,7 +20,6 @@ a{
   top: 7%;
   left: 75%;
   transform: translate(-50%, -50%);
-  background-color: black;
   padding: 10px;
   color: rgb(255, 255, 255);
   font-family: 'Open Sans', sans-serif;
@@ -30,7 +29,6 @@ a{
   top: 7%;
   left: 57%;
   transform: translate(-50%, -50%);
-  background-color: black;
   padding: 10px;
   color: rgb(255, 255, 255);
   font-family: 'Open Sans', sans-serif;
@@ -40,7 +38,6 @@ a{
   top: 7%;
   left: 90%;
   transform: translate(-50%, -50%);
-  background-color: black;
   padding: 10px;
   color: rgb(255, 255, 255);
   font-family: 'Open Sans', sans-serif;
@@ -85,4 +82,34 @@ color:aliceblue;
   background-color: rgb(63, 63, 215);
   border-radius: 8px;
   color: white;
+}
+@media screen and (max-width:850px ){
+  .Time{
+    display: none;
+  }
+  .Date{
+    display: none;
+  }
+}
+@media screen and (max-width:1500px ){
+  .Date{
+    right: 30px;
+  }
+  .Time{
+    right: 30px;
+  }
+}
+@media screen and (max-width:600px ){
+.preferences{
+    float: right;
+    
+}
+}
+
+@media screen and (max-width:540px ){
+  .preferences{
+  position: relative;
+  left: 50px;
+  top: 35px;
+  }
 }

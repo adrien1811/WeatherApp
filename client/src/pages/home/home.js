@@ -31,7 +31,7 @@ const Home = (props) => {
       })
       .then((data) => {
         setWeatherData(data);
-        setBackgroundImage(`https://source.unsplash.com/1600x1000/?${city}`);
+        setBackgroundImage(`https://source.unsplash.com/1638x1000/?${city}`);
 
         const lastUpdateTimestamp = data?.dt;
         if (lastUpdateTimestamp) {
@@ -87,6 +87,7 @@ const Home = (props) => {
         />
       </Helmet>
       <div className="home" style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <div className="container">
         <div className="card">
           <form className="searchbar" onSubmit={handleSearch}>
             <input
@@ -141,6 +142,8 @@ const Home = (props) => {
             center={searchedCityLatLng}
           />
         </div>
+        </div>
+        <div className="container2">
         <div className="card2">
          {forecastData ? (
          forecastData.slice(0, 5).map((forecastItem, index) => (
@@ -158,6 +161,7 @@ const Home = (props) => {
   ) : (
     <div className="loading">Couldn't find forecast data</div>
   )}
+</div>
 </div>
       </div>
     </div>
